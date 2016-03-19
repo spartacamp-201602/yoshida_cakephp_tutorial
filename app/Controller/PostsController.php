@@ -55,6 +55,13 @@ class PostsController extends AppController {
         // $id -> /posts/delete/5 だったら5になる
         // /delete.php?id=5
         // sql = "delete from posts where id = 5"
+
+        if ($this->request->is('get'))
+        {
+            //GETできた場合
+            throw new MethodNotAllowedException();
+        }
+
         if ($this->Post->delete($id))
         {
             //削除に成功した場合
