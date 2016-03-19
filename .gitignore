@@ -1,0 +1,4 @@
+/app/tmp/*
+
+# Mac対策
+.DS_Store
