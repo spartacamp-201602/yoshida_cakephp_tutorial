@@ -50,4 +50,18 @@ class PostsController extends AppController {
         }
     }
 
+    public function delete($id)
+    {
+        // $id -> /posts/delete/5 だったら5になる
+        // /delete.php?id=5
+        // sql = "delete from posts where id = 5"
+        if ($this->Post->delete($id))
+        {
+            //削除に成功した場合
+            $this->Flash->error('記事'.$id.'を削除しました');
+            //リダイレクト
+            return $this->redirect(array('action' =>'index'));
+        }
+    }
+
 }
