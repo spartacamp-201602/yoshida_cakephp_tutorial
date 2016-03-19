@@ -21,9 +21,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
+	<title>Blog App
+<!-- 		<?php echo $cakeDescription ?>:
+		<?php echo $this->fetch('title'); ?> -->
 	</title>
 	<?php
 		echo $this->Html->meta('icon');

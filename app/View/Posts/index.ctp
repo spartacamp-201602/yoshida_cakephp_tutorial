@@ -2,6 +2,9 @@
 
 <?php // debug($posts); ?>
 
+<!-- <h1><?php echo $this->Html->Link('新規投稿', '/posts/add'); ?></h1> -->
+<?php echo $this->Html->Link('新規投稿', array('controller' => 'posts', 'action' => 'add')); ?>
+
 <table>
     <tr>
         <th>Id</th>
@@ -19,6 +22,7 @@
             )); ?>
         </td>
         <td>
+
             <!-- 編集ボタン -->
             <?php echo $this->Html->Link(
                     '編集',
