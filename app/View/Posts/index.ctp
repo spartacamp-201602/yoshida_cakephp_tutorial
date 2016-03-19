@@ -16,8 +16,15 @@
         <td><?php echo $this->Html->link(
                 $post['Post']['title'],
                 array('controller' => 'posts', 'action' => 'show', $post['Post']['id']
-            )); ?></td>
+            )); ?>
+        </td>
         <td>
+            <!-- 編集ボタン -->
+            <?php echo $this->Html->Link(
+                    '編集',
+                    array('action' => 'edit', $post['Post']['id'])) ?>
+
+            <!-- 削除ボタン -->
             <?php echo $this->Form->postLink(
                     '削除',
                     array('action' => 'delete', $post['Post']['id']),

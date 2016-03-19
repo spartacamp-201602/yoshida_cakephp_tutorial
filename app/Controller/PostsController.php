@@ -46,6 +46,13 @@ class PostsController extends AppController {
                 return $this->Flash->error('保存できませんでした...');
             }
 
+            //データが送られてきていない時 -> URLでアクセスした時
+            //既存のレコードを表示する
+            if (!$this->request->data)
+            {
+                $this->request->data = $post;
+            }
+
             // $this->Post->save(引数)
         }
     }
@@ -71,4 +78,30 @@ class PostsController extends AppController {
         }
     }
 
+    public function edit($id) {
+
+        // 既存レコードの取得
+        $post = $this->Post->findById($id);
+
+        if (!$post)
+        {
+            throw new NotFoundException('そんな記事ないよ〜');
+        }
+
+        $this->Post->id = $id;
+
+        if ($this->request->is(array('post', 'put'))) {
+            if ($this->Post->save($this->request->data)) {
+                $this->Flash->success('記事' . $id . 'を編集しました！');
+                return $this->redirect(array('action' => 'index'));
+            }
+            $this->Flash->error('記事を編集できませんでした...');
+        }
+
+        // データが送られてきていない時 -> URLでアクセスした時
+        // 既存レコードを表示する
+        if (!$this->request->data) {
+            $this->request->data = $post;
+        }
+    }
 }
